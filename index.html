@@ -11,23 +11,29 @@
       margin: 0;
       padding: 0;
       text-align: center;
+      transition: background 0.3s, color 0.3s;
+    }
+    .dark-mode {
+      background-color: #1e1e1e;
+      color: #e0e0e0;
     }
     .container {
       padding: 40px 20px;
     }
-    h1 {
+    h1, h2 {
       color: #2c3e50;
-      font-size: 36px;
     }
-    h2 {
-      color: #1e3d59;
-      margin-top: 40px;
+    .dark-mode h1, .dark-mode h2 {
+      color: #f0f0f0;
     }
     p {
       color: #555;
       font-size: 18px;
       max-width: 800px;
       margin: 10px auto 30px;
+    }
+    .dark-mode p {
+      color: #ccc;
     }
     .images {
       display: flex;
@@ -45,14 +51,16 @@
     .buttons {
       margin-top: 20px;
     }
-    .buttons a {
+    .buttons a, .buttons button {
       text-decoration: none;
       background-color: #0077b5;
       color: white;
       padding: 10px 20px;
       border-radius: 5px;
-      margin: 0 10px;
+      margin: 5px 10px;
       display: inline-block;
+      border: none;
+      cursor: pointer;
     }
     .buttons a:first-child {
       background-color: #3b5998;
@@ -66,21 +74,32 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       text-align: left;
     }
+    .dark-mode .section {
+      background: #2b2b2b;
+    }
     .section h2 {
       text-align: center;
     }
     .section ul {
       padding-left: 20px;
+      font-size: 18px;
     }
     footer {
       margin-top: 40px;
       font-size: 14px;
       color: #999;
     }
+    .dark-mode footer {
+      color: #666;
+    }
+    .contact-info a {
+      color: #0077b5;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="profile-content">
     <h1>Hi, I'm Samiul Alim Sifat</h1>
     <p>
       I'm currently studying Electrical Technology.<br/>
@@ -88,14 +107,15 @@
       always exploring new ways to learn — both in tech and in life.
     </p>
 
-    <!-- Profile Image -->
     <div class="images">
-      <img src="profile.jpg" alt="Samiul Alim Sifat" />
+      <img src="samiul-profile.jpg" alt="Samiul Alim Sifat" />
     </div>
 
     <div class="buttons">
       <a href="https://www.facebook.com/samiul.alim.sifat.2025" target="_blank">Facebook</a>
       <a href="https://www.linkedin.com/in/md-samiul-alim-sifat-a0983127a" target="_blank">LinkedIn</a>
+      <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+      <button onclick="downloadPDF()">Download PDF</button>
     </div>
 
     <div class="section">
@@ -129,18 +149,22 @@
       </ul>
     </div>
 
-    <div class="section">
-      <h2>Project</h2>
-      <p><strong>Off Grid Solar Power System for Rural Areas</strong></p>
-      <p>This project focuses on developing a sustainable and cost-effective off-grid solar solution to provide electricity to rural areas with limited access to the national grid. The system is designed with energy efficiency and practicality in mind, tailored for the needs of underserved communities.</p>
-    </div>
-
-    <!-- Extra Image Section -->
-    <div class="images">
-      <img src="extra.jpg" alt="Extra Photo" />
-    </div>
-
-    <footer>&copy; 2025 - Samiul Alim Sifat</footer>
+    <footer>
+      <p class="contact-info">
+        Contact: <a href="mailto:samiul.sifat@email.com">samiul.sifat@email.com</a>
+      </p>
+      <p>&copy; 2025 Samiul Alim Sifat. All rights reserved.</p>
+    </footer>
   </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function downloadPDF() {
+      window.print();
+    }
+  </script>
 </body>
 </html>
